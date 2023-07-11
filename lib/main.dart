@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: AppConstants.scaffoldBackground,
         primarySwatch: Colors.blue,
+        fontFamily: "MTh"
       ),
       home: SignIn(),
     );
