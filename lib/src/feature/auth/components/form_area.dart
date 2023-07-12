@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import 'extensions.dart';
 
-
-
 class FormArea extends StatelessWidget {
   const FormArea({
     super.key,
-    required this.emailController, required this.passwordController,
+    required this.emailController,
+    required this.passwordController, required this.onTap,
   });
 
   final TextEditingController emailController;
   final TextEditingController passwordController;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +38,7 @@ class FormArea extends StatelessWidget {
           MyTextField(
             controller: emailController,
             hintText: "you@example.com",
+            type: TextInputType.emailAddress,
             obscureText: false,
           ),
           const SizedBox(height: 15),
@@ -53,11 +54,12 @@ class FormArea extends StatelessWidget {
           MyTextField(
             controller: passwordController,
             hintText: "Not less than 8 character",
+            type: TextInputType.visiblePassword,
             obscureText: true,
             icon: Image.asset(AppConstants.hide),
           ),
           const SizedBox(height: 50),
-          const AppButton(),
+          AppButton(onTap: onTap,),
           const SizedBox(height: 20),
         ],
       ),

@@ -1,12 +1,14 @@
-import 'package:bloc_signin_test/src/pages/home/home.dart';
+import 'package:bloc_signin_test/src/feature/home/home.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({
-    super.key,
+    super.key, required this.onTap,
   });
+
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +20,7 @@ class AppButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
       ),
       child: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const Home(),
-            ),
-          );
-        },
+        onTap: onTap,
         child: const Center(
           child: Text(
             "Log In",

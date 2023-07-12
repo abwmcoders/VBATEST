@@ -7,6 +7,7 @@ class MyTextField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final Widget? icon;
+  final TextInputType? type;
 
   const MyTextField({
     super.key,
@@ -14,6 +15,7 @@ class MyTextField extends StatelessWidget {
     required this.hintText,
     required this.obscureText, 
     this.icon,
+    this.type,
   });
 
   @override
@@ -21,6 +23,7 @@ class MyTextField extends StatelessWidget {
     return TextField(
       controller: controller,
       obscureText: obscureText,
+      keyboardType: type,
       style: const TextStyle(
         color: AppConstants.kWhiteColor,
         fontSize: 15,
