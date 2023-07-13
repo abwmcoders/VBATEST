@@ -6,14 +6,20 @@ import 'package:http/http.dart' as http;
 class AuthRepository {
   login(String email, String password) async {
     var res = await http.post(
-        Uri.parse("http://vbatest.metrdev.com:2472/api/v1/signin"),
-        // headers: {
-        //   "Content-Type": "application/json",
-        // },
-        body: {
-          "email": email,
-          "password": password,
-        });
+      Uri.parse("http://vbatest.metrdev.com:2472/api/v1/signin"),
+      // headers: {
+      //   "Content-Type": application/json,
+      // },
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: {
+        "email": email,
+        "password": password,
+      },
+    ).timeout(
+      const Duration(seconds: 60),
+    );
     print("before converting value -----> ${res.toString()}");
     print("before converting value -----> ${res.body.toString()}");
     print("Aftererrer");

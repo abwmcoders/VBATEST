@@ -110,6 +110,7 @@ class _SignInState extends State<SignIn> {
         //   content: Text(state.message!),
         // );
         // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        Navigator.pop(context);
         return Text(state.message!);
       } else if (state is LoginLoadingState) {
         return const Center(
